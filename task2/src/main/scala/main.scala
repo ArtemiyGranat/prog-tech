@@ -7,7 +7,7 @@ def countSetBitsFromScratch(number: Int): Int = {
   var count = 0
   var mutNumber = number
   while (mutNumber != 0) {
-    mutNumber = mutNumber & (mutNumber - 1);
+    mutNumber = mutNumber & (mutNumber - 1)
     count += 1
   }
   count
@@ -24,7 +24,9 @@ def stairs(number: Int): Unit = {
 
 def isSnakeCase(name: String): Boolean = {
   name match {
+    case "" => false
     case name if name.startsWith("_") || name.endsWith("_") || name.contains("__") => false
+    case name if name.exists { ch => ch >= 'а' && ch <= 'я' || ch >= 'А' && ch <= 'Я' } => false
     case name if name.forall(ch => ch.isLower || ch == '_') => true
     case _ => false
   }
@@ -43,6 +45,8 @@ def main(): Unit = {
   stairs(5)
 
   // Task 3
+  println(isSnakeCase("abc_дef"))
+  println(isSnakeCase(""))
   println(isSnakeCase("abc def"))
   println(isSnakeCase("abc_def"))
   println(isSnakeCase("_abcdef"))
