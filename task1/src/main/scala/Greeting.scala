@@ -1,5 +1,7 @@
 object Greeting {
+  import Config.{greeting => prefix}
+  
   def greeting(name: String): Unit = {
-    println (Config.greeting + name)
+    println (prefix + name)
   }
 }

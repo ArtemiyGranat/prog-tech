@@ -14,11 +14,15 @@ def countSetBitsFromScratch(number: Int): Int = {
 }
 
 def stairs(number: Int): Unit = {
-  for (i <- 1 to number) {
-    for (j <- 1 to i) {
-      print(s"$j ")
-    }
-    println()
+// Non-functional style
+//  for (i <- 1 to number) {
+//    for (j <- 1 to i) {
+//      print(s"$j ")
+//    }
+//    println()
+//  }
+  (1 to number).foreach {
+    i => println((1 to i).map(_.toString).mkString(" "))
   }
 }
 
@@ -55,4 +59,5 @@ def main(): Unit = {
   println(isSnakeCase("abc-def"))
   println(isSnakeCase("a_bc_def"))
   println(isSnakeCase("a"))
+  println(isSnakeCase("a4"))
 }
