@@ -28,6 +28,8 @@ def main(): Unit = {
   // Subtask 3
   val chipsWeight1 = Chips.weightAutoCurried(90)(0.9)(0.1)
   val chipsWeight2 = Chips.weightCurried(100)(0.85)(0.1)
+  val chipsWeight3 = Chips.weightCurried(90)
+  println(chipsWeight3)
   println(f"$chipsWeight1%.2f")
   println(f"$chipsWeight2%.2f")
 }
