@@ -4,9 +4,11 @@ def main(): Unit = {
   val k1 = 4
   val list1: List[Int] = 3 :: 8 :: 1 :: 12 :: 23 :: Nil
   println(KthOrderStatistic.kthOrderStatistic(k1, list1))
-  val k2 = 3
+  val k2 = 5
   val list2: List[Int] = 4 :: 7 :: 6 :: 5 :: 12 :: 9 :: 5 :: Nil
+  println(KthOrderStatistic.kthOrderStatistic(3, list2))
   println(KthOrderStatistic.kthOrderStatistic(k2, list2))
+
 
   // Subtask 2
   val field = Seafield.initField()
@@ -18,14 +20,16 @@ def main(): Unit = {
   Seafield.printField(newField)
 
   // Subtask 3
-  val list3: List[Int] = 1 :: 2 :: 3 :: 4 :: Nil
-  val list4: List[Int] = 2 :: 3 :: 4 :: 5 :: Nil
-  val list5: List[Int] = 3 :: 6 :: 9 :: 12 :: Nil
-  for {
+  val list3: List[Int] = 1 :: 2 :: 3 :: Nil
+  val list4: List[Int] = 1 :: 2 :: 3 :: 5 :: 6 :: Nil
+  val list5: List[Int] = 4 :: 5 :: 6 :: Nil
+  val lst = for
     x <- list3
-    y <- list4
-    z <- list5 if x != y && x * y == z
-  } {
-    println(f"($x, $y)")
+    y <- list4 if x != y && list5.contains(x * y)
+  yield (x, y)
+  
+  lst.foreach {
+    (i, j) => println(s"($i, $j) ")
   }
+
 }

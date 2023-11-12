@@ -32,9 +32,7 @@ object Seafield {
   }
 
   def printField(field: Field): Unit = {
-    field.foreach {
-      row => println(row.map(if _ then "1 " else "0 ").mkString)
-    }
+    field.foreach(row => println(row.map(if _ then "X" else "_").mkString(" ")))
     println()
   }
 
